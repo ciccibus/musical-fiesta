@@ -1,8 +1,7 @@
-// @flow
+"use strict"
 
-function foo(x: ?number): number {
-  if (x) {
-    return x;
-  }
-  return 1;
+const greetings = () => {
+    console.log("yay!");
 }
+
+greetings();
