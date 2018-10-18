@@ -4,5 +4,5 @@ function foo(x: ?number): number {
   if (x) {
     return x;
   }
-  return 0;
+  return 1;
 }
