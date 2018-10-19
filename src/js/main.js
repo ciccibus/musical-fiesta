@@ -1,19 +1,18 @@
 "use strict"
-import observable from './observable';
-
-const greetings = (state) => {
-    console.log("greetings", JSON.stringify(state, null, 2));
-}
+import logger from './logger';
+import createStore from './store';
 
 const INITIAL_STATE = { message: ""};
 
-const state = observable({
-    target: INITIAL_STATE,
-    listener:greetings
+const state = createStore(INITIAL_STATE, logger);
+
+state.setStore({
+	message: "Yay! is working!",
+	action: "Ready!"
 });
 
-state.message = "First message";
 
-setTimeout(() => {
-    state.message = "Second message";
-}, 1000)
+console.log("=============");
+console.log(JSON.stringify(state.getStore(), null, 2));
+console.log("=============");
+
