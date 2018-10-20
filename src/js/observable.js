@@ -9,9 +9,6 @@ export default (target,listeners) => {
                 	name,
                 	value
             }	;
-        },
-        get: (target,name) => {
-            return Reflect.get(target, name);
         }
     };
 
