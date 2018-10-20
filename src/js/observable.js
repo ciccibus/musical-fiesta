@@ -11,7 +11,7 @@ export default (target,listeners) => {
             }	;
         },
         get: (target,name) => {
-            return Object.freeze(target[name]);
+            return Reflect.get(target, name);
         }
     };
 
