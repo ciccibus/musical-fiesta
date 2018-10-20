@@ -6,7 +6,7 @@
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel start watch",
     "start": "http-server",
-    "test": "jest"
+    "test": "jest --color --coverage"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
