@@ -1,6 +1,6 @@
 {
   "name": "musical-fiesta",
-  "main": "lib/js/index.js",
+  "main": "lib/js/bundle.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
@@ -8,6 +8,7 @@
     "start": "http-server",
     "test": "jest --color --coverage"
   },
+  "keywords": [ "npm", "storage" ],
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",

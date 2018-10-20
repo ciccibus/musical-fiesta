@@ -8,6 +8,12 @@ describe('Observable', () => {
 		const actual = typeof observable({}, []);
   		expect(expected).toEqual(actual);
 	});
+	test('Should throw an error if listener is not a function', () => {
+  		expect(() => {
+    			const storeObservable = observable({}, ["not a function"]);
+			Reflect.set(storeObservable, "prop", "my prop");
+  		}).toThrow();	
+	});
 	test('Should call listeners', () => {
 		const myMockListener = jest.fn();
 		const storeObservable = observable({}, [myMockListener]);

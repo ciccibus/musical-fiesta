@@ -4,7 +4,13 @@ export default (target,listeners) => {
         set: (target,name,value) => {
 		const oldTarget = Object.assign({}, target);
             	Reflect.set(target, name, value);
-		listeners.forEach(listener => listener(oldTarget, target));
+		listeners.forEach(listener => {
+			if( typeof listener === "function") {
+				listener(oldTarget, target);
+			} else {
+				throw new Error("Listener must be a function!");
+			}
+		});
             	return {
                 	name,
                 	value
