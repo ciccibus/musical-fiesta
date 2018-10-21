@@ -1,2 +1,3 @@
 # musical-fiesta
-Proxy experiment
+Proxy experiment for manage stores.
+

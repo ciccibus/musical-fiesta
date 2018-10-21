@@ -8,9 +8,10 @@ const production = !process.env.ROLLUP_WATCH;
 export default {
   input: "src/js/main.js",
   output: {
-    file: "lib/bundle.js",
+    file: "dist/index.js",
     format: "iife", // immediately-invoked function expression — suitable for <script> tags
-    sourcemap: true
+    sourcemap: true,
+    name:"MF"
   },
   plugins: [
     resolve({

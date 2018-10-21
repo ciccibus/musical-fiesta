@@ -1,6 +1,7 @@
 {
   "name": "musical-fiesta",
-  "main": "lib/js/bundle.js",
+  "version": "0.0.1",
+  "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
@@ -8,7 +9,18 @@
     "start": "http-server",
     "test": "jest --color --coverage"
   },
-  "keywords": [ "npm", "storage" ],
+  "author":"M. Gildone <matteo.gildone@gmail.com>",
+  "license": "MIT",
+  "keywords": [ "npm", "storage", "frontend" ],
+  "files": ["dist", "README.md"],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ciccibus/musical-fiesta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ciccibus/musical-fiesta/issues"
+  },
+  "homepage": "https://github.com/ciccibus/musical-fiesta#readme",
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
