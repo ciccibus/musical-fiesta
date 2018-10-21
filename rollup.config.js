@@ -9,9 +9,8 @@ export default {
   input: "src/js/main.js",
   output: {
     file: "dist/index.js",
-    format: "iife", // immediately-invoked function expression — suitable for <script> tags
+    format: "cjs",
     sourcemap: true,
-    name:"MF"
   },
   plugins: [
     resolve({
