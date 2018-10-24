@@ -10,6 +10,14 @@ describe("Store", () => {
 		expect(typeof state).toBe("object");
 		expect(Object.keys(state)).toEqual(["getStore", "setStore"]);
 	});
+	test("Should set initial state", ()=> {
+		const INITIAL_STATE = { message: ""};
+		const state = createStore(INITIAL_STATE, () => {});
+
+		expect(state.getStore()).toEqual({
+			message: ""
+		});
+	});
 	test("Should update the state", ()=> {
 		const INITIAL_STATE = { message: ""};
 		const state = createStore(INITIAL_STATE, () => {});

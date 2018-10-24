@@ -1,8 +1,8 @@
-"use strict"
-import logger from './logger';
-import createStore from './store';
+"use strict";
+import logger from "./logger";
+import createStore from "./store";
 
 export  {
-	logger,
-	createStore
-}
+    logger,
+    createStore
+};
