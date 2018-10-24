@@ -1,8 +1,24 @@
 "use strict";
-import observable from "./observable";
 
 export default (initialState = {}, ...listeners) => {
-    const store = observable(initialState, listeners);
+    const handler = {
+        set: (target, name, value) => {
+            const oldTarget = Object.assign({}, target);
+            	Reflect.set(target, name, value);
+                listeners.forEach(listener => {
+                    if( typeof listener === "function") {
+                        listener(oldTarget, target);
+                    } else {
+                        throw new Error("Listener must be a function!");
+                    }
+                });
+            return {
+                name,
+                value
+            };
+        }
+    };
+    const store = new Proxy({}, handler);
 
     const getStore = () => {
         return Object.assign({}, store);
@@ -12,7 +28,7 @@ export default (initialState = {}, ...listeners) => {
         Object.keys(state).forEach(key => {
             Reflect.set(store, key, state[key]);
         });
-	 	return Object.assign({}, store, state);
+	return Object.assign({}, store, state);
     };
     
     setStore(initialState);
