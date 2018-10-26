@@ -14,7 +14,10 @@
     "format": "npm run prettier -- --write",
     "validate": "npm run lint && npm run prettier -- --list-different && npm run flow",
     "flow": "flow",
-    "precommit": "lint-staged && npm run flow"
+    "precommit": ""
+  },
+  "hooks": {
+    "pre-commit": "lint-staged && npm run flow"
   },
   "author": "M. Gildone <matteo.gildone@gmail.com>",
   "license": "MIT",
@@ -40,9 +43,11 @@
     "@babel/core": "^7.1.2",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "babel-preset-flow": "^6.23.0",
     "eslint": "^5.7.0",
     "eslint-config-prettier": "^3.1.0",
     "flow-bin": "^0.84.0",

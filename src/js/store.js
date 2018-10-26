@@ -1,6 +1,7 @@
+// @flow
 "use strict";
 
-export default (initialState = {}, ...listeners) => {
+export default (initialState: any = {}, ...listeners: Array<function>) => {
   const handler = {
     set: (target, name, value) => {
       const oldTarget = Object.assign({}, target);
@@ -12,10 +13,7 @@ export default (initialState = {}, ...listeners) => {
           throw new Error("Listener must be a function!");
         }
       });
-      return {
-        name,
-        value
-      };
+      return true;
     }
   };
   const store = new Proxy({}, handler);
@@ -24,7 +22,7 @@ export default (initialState = {}, ...listeners) => {
     return Object.assign({}, store);
   };
 
-  const setStore = state => {
+  const setStore = (state: any) => {
     Object.keys(state).forEach(key => {
       Reflect.set(store, key, state[key]);
     });
