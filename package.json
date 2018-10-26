@@ -13,11 +13,7 @@
     "prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|css|scss|sass|ts|tsx|md|mdx|)\"",
     "format": "npm run prettier -- --write",
     "validate": "npm run lint && npm run prettier -- --list-different && npm run flow",
-    "flow": "flow",
-    "precommit": ""
-  },
-  "hooks": {
-    "pre-commit": "lint-staged && npm run flow"
+    "flow": "flow"
   },
   "author": "M. Gildone <matteo.gildone@gmail.com>",
   "license": "MIT",
