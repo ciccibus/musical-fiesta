@@ -1,7 +1,8 @@
 // @flow
 "use strict";
-
-export default (initialState: any = {}, ...listeners: Array<function>) => {
+console.log("AAA");
+console.log("AAA");
+export default (initialState: any = {}, ...listeners: Array<any>) => {
   const handler = {
     set: (target, name, value) => {
       const oldTarget = Object.assign({}, target);
