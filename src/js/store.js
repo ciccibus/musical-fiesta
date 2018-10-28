@@ -1,7 +1,7 @@
 // @flow
 "use strict";
 
-export default (initialState: any = {}, ...listeners: Array<Function>) => {
+export default (initialState: any = {}, ...listeners: Function[]) => {
   const handler = {
     set: (target, name, value) => {
       const oldTarget = Object.assign({}, target);
