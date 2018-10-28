@@ -1,18 +1,14 @@
 // @flow
 "use strict";
 
+import applayListeners from "./listeners";
+
 export default (initialState: any = {}, ...listeners: Function[]) => {
   const handler = {
     set: (target, name, value) => {
       const oldTarget = Object.assign({}, target);
       Reflect.set(target, name, value);
-      listeners.forEach(listener => {
-        if (typeof listener === "function") {
-          listener(oldTarget, target);
-        } else {
-          throw new Error("Listener must be a function!");
-        }
-      });
+      applayListeners(listeners, oldTarget, target);
       return true;
     }
   };
@@ -29,10 +25,15 @@ export default (initialState: any = {}, ...listeners: Function[]) => {
     return Object.assign({}, store, state);
   };
 
+  const find = (key: string) => {
+    return Reflect.get(store, key);
+  };
+
   setStore(initialState);
 
   return {
     getStore,
-    setStore
+    setStore,
+    find
   };
 };

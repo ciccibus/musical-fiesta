@@ -7,13 +7,13 @@ describe("Store", () => {
   test("Should create an object", () => {
     const state = createStore();
     expect(typeof state).toBe("object");
-    expect(Object.keys(state)).toEqual(["getStore", "setStore"]);
+    expect(Object.keys(state)).toEqual(["getStore", "setStore", "find"]);
   });
   test("Should create an object", () => {
     const INITIAL_STATE = {};
     const state = createStore(INITIAL_STATE, () => {});
     expect(typeof state).toBe("object");
-    expect(Object.keys(state)).toEqual(["getStore", "setStore"]);
+    expect(Object.keys(state)).toEqual(["getStore", "setStore", "find"]);
   });
   test("Should set initial state", () => {
     const INITIAL_STATE = { message: "" };
@@ -37,9 +37,20 @@ describe("Store", () => {
       action: "Ready!"
     });
   });
+  test("Should find state", () => {
+    const INITIAL_STATE = { message: "" };
+    const state = createStore(INITIAL_STATE, () => {});
+
+    state.setStore({
+      message: "Yay! is working!",
+      action: "Ready!"
+    });
+
+    expect(state.find("message")).toEqual("Yay! is working!");
+  });
   test("Should throw an error if listener is not a function", () => {
     expect(() => {
-      const state = createStore({ message: "yay!" }, ["not a function"]);
+      createStore({ message: "yay!" }, ["not a function"]);
     }).toThrow("Listener must be a function!");
   });
   test("Should call listeners", () => {
